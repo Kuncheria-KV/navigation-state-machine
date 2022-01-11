@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "coupons-flow",
+    "slug": "coupons-flow",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "coupons-flow"
+}
