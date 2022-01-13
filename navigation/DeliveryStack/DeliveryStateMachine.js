@@ -38,8 +38,8 @@ const deliveryStackStateMachine = createMachine({
       invoke: [
         { id: "callEnableDeliveryOption", src: "callEnableDeliveryOption" },
         {
-          id: "navigateToHome",
-          src: "navigateToHome",
+          id: "navigateToSuccess",
+          src: "navigateToSuccess",
           onDone: { target: "enableDeliveryMethod" },
         },
       ],

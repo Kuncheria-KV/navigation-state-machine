@@ -19,6 +19,10 @@ const DeliveryStackActionProvider = ({ navigation, children }) => {
         navigation.navigate("Home", { screen: "HomePage" });
         Promise.resolve();
       },
+      navigateToSuccess: () => {
+        navigation.navigate("Success");
+        Promise.resolve();
+      },
       callEnableDeliveryOption: async () => {
         // TODO : Print delivery option data from context
         console.log("!! Calling API !!");

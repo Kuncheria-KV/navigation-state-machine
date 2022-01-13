@@ -19,6 +19,10 @@ const CouponStackActionProvider = ({ navigation, children }) => {
         navigation.navigate("Home", { screen: "HomePage" });
         Promise.resolve();
       },
+      navigateToSuccess: () => {
+        navigation.navigate("Success");
+        Promise.resolve();
+      },
       callCreateCoupon: async () => {
         // TODO : Print coupon data from context
         console.log("!! Calling API !!");

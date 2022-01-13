@@ -5,6 +5,7 @@ import { CouponStack } from "./CouponStack";
 import { DeliveryStack } from "./DeliveryStack";
 import { PaymentStack } from "./PaymentStack";
 import { HomeStack } from "./HomeStack";
+import SuccessPage from "../pages/SuccessPage";
 
 const Stack = createStackNavigator();
 const RootStack = () => {
@@ -30,6 +31,7 @@ const RootStack = () => {
         component={PaymentStack}
         options={{ headerShown: false }}
       />
+      <Stack.Screen name="Success" component={SuccessPage} />
     </Stack.Navigator>
   );
 };

@@ -38,8 +38,8 @@ const couponStackStateMachine = createMachine({
       invoke: [
         { id: "callCreateCoupon", src: "callCreateCoupon" },
         {
-          id: "navigateToHome",
-          src: "navigateToHome",
+          id: "navigateToSuccess",
+          src: "navigateToSuccess",
           onDone: { target: "createCoupon" },
         },
       ],
