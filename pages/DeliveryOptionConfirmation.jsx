@@ -1,10 +1,20 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { useActor } from "@xstate/react";
+import React, { useContext } from "react";
+import { View, Button } from "react-native";
+
+import DeliveryStackMachineContext from "../navigation/DeliveryStack/DeliveryStackMachineContext";
 
 const DeliveryOptionConfirmation = () => {
+  const { deliveryStackMachine } = useContext(DeliveryStackMachineContext);
+  const [, send] = useActor(deliveryStackMachine);
   return (
     <View>
-      <Text>Delivery Option confirmation</Text>
+      <Button
+        title="Confirm delivery option"
+        color="mediumseagreen"
+        onPress={() => send("APPROVE_DELIVERY_OPTION")}
+      />
+      <Button title="Cancel" color="tomato" onPress={() => send("CANCEL")} />
     </View>
   );
 };

@@ -11,10 +11,10 @@ const CouponsConfirmation = () => {
     <View>
       <Button
         title="Confirm create coupon"
-        color="green"
+        color="mediumseagreen"
         onPress={() => send("APPROVE_COUPON")}
       />
-      <Button title="Cancel" color="red" onPress={() => send("CANCEL")} />
+      <Button title="Cancel" color="tomato" onPress={() => send("CANCEL")} />
     </View>
   );
 };

@@ -3,17 +3,20 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import DeliveryOption from "../../pages/DeliveryOption";
 import DeliveryOptionConfirmation from "../../pages/DeliveryOptionConfirmation";
+import DeliveryStackActionProvider from "./DeliveryStackActionProvider";
 
 const Stack = createStackNavigator();
-const DeliveryStack = () => {
+const DeliveryStack = ({ navigation }) => {
   return (
-    <Stack.Navigator initialRouteName="DeliveryOption">
-      <Stack.Screen name="DeliveryOption" component={DeliveryOption} />
-      <Stack.Screen
-        name="ConfirmDeliveryOption"
-        component={DeliveryOptionConfirmation}
-      />
-    </Stack.Navigator>
+    <DeliveryStackActionProvider navigation={navigation}>
+      <Stack.Navigator initialRouteName="DeliveryOption">
+        <Stack.Screen name="DeliveryOption" component={DeliveryOption} />
+        <Stack.Screen
+          name="ConfirmDeliveryOption"
+          component={DeliveryOptionConfirmation}
+        />
+      </Stack.Navigator>
+    </DeliveryStackActionProvider>
   );
 };
 
