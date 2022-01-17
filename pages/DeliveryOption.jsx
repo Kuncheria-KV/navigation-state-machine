@@ -1,6 +1,6 @@
 import { useActor } from "@xstate/react";
 import React, { useContext } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Button } from "react-native";
 import DeliveryStackMachineContext from "../navigation/DeliveryStack/DeliveryStackMachineContext";
 
 const DeliveryOption = () => {

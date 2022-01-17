@@ -40,9 +40,31 @@ const couponStackStateMachine = createMachine({
         {
           id: "navigateToSuccess",
           src: "navigateToSuccess",
-          onDone: { target: "createCoupon" },
+          onDone: { target: "couponCreateSuccess" },
         },
       ],
+    },
+    /**
+     * Creates a nested state for handling close of success in success page
+     * We can create nested states for handling internal state changes in one state.
+     */
+    couponCreateSuccess: {
+      id: "couponCreateSuccess",
+      initial: "successView",
+      states: {
+        successView: {
+          on: {
+            CLOSE: { target: "successClosed" },
+          },
+        },
+        successClosed: {
+          invoke: {
+            id: "navigateToHome2",
+            src: "navigateToHome",
+            onDone: { target: "#couponStateMachine.createCoupon" },
+          },
+        },
+      },
     },
   },
 });

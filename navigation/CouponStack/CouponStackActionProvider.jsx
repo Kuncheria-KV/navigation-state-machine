@@ -15,11 +15,11 @@ const CouponStackActionProvider = ({ navigation, children }) => {
         navigation.navigate("ConfirmCoupon");
         Promise.resolve();
       },
-      navigateToHome: () => {
+      navigateToHome: async () => {
         navigation.navigate("Home", { screen: "HomePage" });
         Promise.resolve();
       },
-      navigateToSuccess: () => {
+      navigateToSuccess: async () => {
         navigation.navigate("Success");
         Promise.resolve();
       },
