@@ -6,7 +6,15 @@ import DeliveryStackMachineContext from "../navigation/DeliveryStack/DeliverySta
 const DeliverySuccessPage = () => {
   const { deliveryStackMachine } = useContext(DeliveryStackMachineContext);
   const [, send] = useActor(deliveryStackMachine);
-  return <Success message={"Delivery method enabled"} onClose={() => {}} />;
+
+  return (
+    <Success
+      message={"Delivery method enabled"}
+      onClose={() => {
+        send("CLOSE");
+      }}
+    />
+  );
 };
 
 export default DeliverySuccessPage;

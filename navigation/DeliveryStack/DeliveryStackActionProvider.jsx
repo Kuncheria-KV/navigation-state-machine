@@ -19,7 +19,7 @@ const DeliveryStackActionProvider = ({ navigation, children }) => {
         navigation.navigate("Home", { screen: "HomePage" });
         Promise.resolve();
       },
-      navigateToSuccess: () => {
+      navigateToSuccess: async () => {
         navigation.navigate("Success");
         Promise.resolve();
       },

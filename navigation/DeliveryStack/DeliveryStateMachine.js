@@ -40,9 +40,27 @@ const deliveryStackStateMachine = createMachine({
         {
           id: "navigateToSuccess",
           src: "navigateToSuccess",
-          onDone: { target: "enableDeliveryMethod" },
+          onDone: { target: "deliveryEnableSuccess" },
         },
       ],
+    },
+    deliveryEnableSuccess: {
+      id: "deliveryEnableSuccess",
+      initial: "successView",
+      states: {
+        successView: {
+          on: {
+            CLOSE: { target: "successClosed" },
+          },
+        },
+        successClosed: {
+          invoke: {
+            id: "navigateToHome2",
+            src: "navigateToHome",
+            onDone: { target: "#deliveryStateMachine.enableDeliveryMethod" },
+          },
+        },
+      },
     },
   },
 });
