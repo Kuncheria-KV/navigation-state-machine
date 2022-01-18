@@ -7,11 +7,11 @@ import globalStyles from "./globalStyles";
 
 const CouponDetails = () => {
   const { couponStackMachine } = useContext(CouponStackMachineContext);
-  // const [, send] = useActor(couponStackMachine);
+  const [, send] = useActor(couponStackMachine);
   const [couponCode, setCouponCode] = useState("");
 
   const handleConfirmCoupon = useCallback(() => {
-    couponStackMachine.send({
+    send({
       type: "CONFIRM_COUPON",
       data: { couponCode },
     });
