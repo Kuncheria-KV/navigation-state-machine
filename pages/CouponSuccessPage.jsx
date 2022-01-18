@@ -8,7 +8,7 @@ const SuccessPage = () => {
   const [state, send] = useActor(couponStackMachine);
   return (
     <Success
-      message={"Coupon created"}
+      message={`Coupon ${state.context.couponCode} created`}
       onClose={() => {
         send("CLOSE");
       }}

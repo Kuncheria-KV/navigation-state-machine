@@ -1,14 +1,18 @@
 import { useActor } from "@xstate/react";
 import React, { useContext } from "react";
-import { View, Button } from "react-native";
+import { View, Button, Text, StyleSheet } from "react-native";
 
 import { CouponStackMachineContext } from "../navigation/CouponStack";
+import globalStyles from "./globalStyles";
 
 const CouponsConfirmation = () => {
   const { couponStackMachine } = useContext(CouponStackMachineContext);
-  const [, send] = useActor(couponStackMachine);
+  const [state, send] = useActor(couponStackMachine);
   return (
-    <View>
+    <View style={globalStyles.container}>
+      <Text
+        style={globalStyles.boldTextCenter}
+      >{`Are you sure you want to create coupon with code: ${state.context.couponCode}`}</Text>
       <Button
         title="Confirm create coupon"
         color="mediumseagreen"
