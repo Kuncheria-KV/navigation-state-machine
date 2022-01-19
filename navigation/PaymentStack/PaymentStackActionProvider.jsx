@@ -14,6 +14,10 @@ const PaymentStackActionProvider = ({ navigation, children }) => {
         navigation.navigate("ActivatePayment");
         Promise.resolve();
       },
+      navigateBackToSource: async (context) => {
+        navigation.navigate(context.source, context.params);
+        Promise.resolve();
+      },
     },
   });
 

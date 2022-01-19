@@ -8,7 +8,10 @@ const DeliveryStackActionProvider = ({ navigation, children }) => {
   const deliveryStackMachine = useInterpret(deliveryStackStateMachine, {
     services: {
       navigateToPayment: async () => {
-        navigation.navigate("Payment", { screen: "ActivatePayment" });
+        navigation.navigate("Payment", {
+          screen: "ActivatePayment",
+          params: { source: "Delivery", params: { screen: "DeliveryOption" } },
+        });
         Promise.resolve();
       },
       navigateToConfirmDeliveryOption: async () => {

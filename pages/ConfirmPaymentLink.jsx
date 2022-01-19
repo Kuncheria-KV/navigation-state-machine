@@ -6,9 +6,13 @@ import PaymentStackContext from "../navigation/PaymentStack/PaymentStackMachineC
 const ConfirmPaymentLink = () => {
   const { paymentStackMachine } = useContext(PaymentStackContext);
   const [, send] = useActor(paymentStackMachine);
+  const handleConfirm = () => {
+    // logic to activate payment
+    send("CONFIRM");
+  };
   return (
     <View>
-      <Button title="Confirm" />
+      <Button title="Confirm" onPress={handleConfirm} />
       <Button title="Decline" color="tomato" onPress={() => send("DECLINE")} />
     </View>
   );

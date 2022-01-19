@@ -8,7 +8,10 @@ const CouponStackActionProvider = ({ navigation, children }) => {
   const couponStackMachine = useInterpret(couponStackStateMachine, {
     services: {
       navigateToPayment: async () => {
-        navigation.navigate("Payment", { screen: "ActivatePayment" });
+        navigation.navigate("Payment", {
+          screen: "ActivatePayment",
+          params: { source: "Coupon", params: { screen: "CouponDetail" } },
+        });
         Promise.resolve();
       },
       navigateToConfirmCoupon: async () => {
