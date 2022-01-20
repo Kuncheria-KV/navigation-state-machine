@@ -3,12 +3,13 @@ import React, { useContext } from "react";
 import { View, Button } from "react-native";
 
 import DeliveryStackMachineContext from "../navigation/DeliveryStack/DeliveryStackMachineContext";
+import globalStyles from "./globalStyles";
 
 const DeliveryOptionConfirmation = () => {
   const { deliveryStackMachine } = useContext(DeliveryStackMachineContext);
   const [, send] = useActor(deliveryStackMachine);
   return (
-    <View>
+    <View style={globalStyles.container}>
       <Button
         title="Confirm delivery option"
         color="mediumseagreen"

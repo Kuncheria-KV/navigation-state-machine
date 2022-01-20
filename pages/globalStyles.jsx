@@ -2,9 +2,13 @@ import { StyleSheet } from "react-native";
 
 const globalStyles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
+    display: "flex",
+    height: 180,
+    justifyContent: "space-around",
     alignItems: "center",
+  },
+  marginV16: {
+    marginVertical: 16,
   },
   boldTextCenter: {
     fontWeight: "bold",

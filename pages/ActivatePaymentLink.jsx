@@ -2,6 +2,7 @@ import { useActor } from "@xstate/react";
 import React, { useContext } from "react";
 import { View, Button } from "react-native";
 import PaymentStackContext from "../navigation/PaymentStack/PaymentStackMachineContext";
+import globalStyles from "./globalStyles";
 
 const ActivatePaymentLink = ({ route }) => {
   const { paymentStackMachine } = useContext(PaymentStackContext);
@@ -16,7 +17,7 @@ const ActivatePaymentLink = ({ route }) => {
   // }, [route]);
 
   return (
-    <View>
+    <View style={globalStyles.container}>
       <Button
         title="Go to Confirm Payment link"
         onPress={() => send("CONFIRM_PAYMENT_ACTIVATION")}

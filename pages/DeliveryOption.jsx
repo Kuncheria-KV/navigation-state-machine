@@ -4,6 +4,7 @@ import { useActor } from "@xstate/react";
 import React, { useContext, useState } from "react";
 import { View, Button } from "react-native";
 import DeliveryStackMachineContext from "../navigation/DeliveryStack/DeliveryStackMachineContext";
+import globalStyles from "./globalStyles";
 
 const DeliveryOption = () => {
   const { deliveryStackMachine } = useContext(DeliveryStackMachineContext);
@@ -16,7 +17,7 @@ const DeliveryOption = () => {
       .then(setIsPaymentActive);
   });
   return (
-    <View>
+    <View style={globalStyles.container}>
       <Button
         title="Go to Confirm delivery"
         onPress={() => send("CONFIRM_DELIVERY_OPTION")}
