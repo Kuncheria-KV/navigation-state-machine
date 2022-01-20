@@ -3,7 +3,7 @@ import { useInterpret } from "@xstate/react";
 import paymentStackStateMachine from "./PaymentStateMachine";
 import PaymentStackContext from "./PaymentStackMachineContext";
 
-const PaymentStackActionProvider = ({ navigation, children }) => {
+const PaymentStackActionProvider = ({ navigation, route, children }) => {
   const paymentStackMachine = useInterpret(paymentStackStateMachine, {
     services: {
       navigateToConfirmPayment: async () => {
@@ -18,6 +18,10 @@ const PaymentStackActionProvider = ({ navigation, children }) => {
         navigation.navigate(context.source, context.params);
         Promise.resolve();
       },
+    },
+    context: {
+      source: route.params?.params?.source,
+      params: route.params?.params?.params,
     },
   });
 
