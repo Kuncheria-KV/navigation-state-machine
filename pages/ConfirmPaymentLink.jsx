@@ -1,3 +1,4 @@
+import AsyncStorageLib from "@react-native-async-storage/async-storage";
 import { useActor } from "@xstate/react";
 import React, { useContext } from "react";
 import { View, Button } from "react-native";
@@ -7,8 +8,9 @@ const ConfirmPaymentLink = () => {
   const { paymentStackMachine } = useContext(PaymentStackContext);
   const [, send] = useActor(paymentStackMachine);
   const handleConfirm = () => {
-    // logic to activate payment
-    send("CONFIRM");
+    AsyncStorageLib.setItem("PAYMENT_ACTIVE", "true").then(() =>
+      send("CONFIRM")
+    );
   };
   return (
     <View>
